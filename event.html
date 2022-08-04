@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jQuery event</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		.merah {
+			color: red;
+		}
+
+		.biru {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<h1>Yofandi mencoba event jquery</h1>
+	<ul class="lokasi">
+		<li class="surabaya">
+			<strong>surabaya</strong><br>
+			<button id="butsuraH">H</button>
+			<button id="butsura">Pergi</button>
+			<button id="butsurahap">Hapus</button>
+		</li>
+		<li class="jember">jember</li>
+		<li class="bogor">bogor</li>
+		<li class="madura">madura</li>
+		<li class="pasuruan">pasuruan</li>
+	</ul>
+
+	<button id="butbogorH">toggle</button>
+	<button id="pasuruanbiru">pasuruanbiru</button>
+	<button id="pasuruanbesar">pasuruanbesar</button>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function() {
+			// custom css and class
+			$('.madura').addClass('merah');
+
+			$('#pasuruanbiru').on('click', function() {
+				$('.pasuruan').addClass('biru');
+			});
+
+			$("#pasuruanbesar").on('click', function() {
+				$('.pasuruan').animate({
+					fontSize: 100,
+					marginTop: 100,
+					marginLeft: 50
+				});
+			});
+
+			// event
+			$('#butsura').on('click', function() {
+				alert('Saya ke Surabaya');
+			});
+
+			$('#butsurahap').on('click', function() {
+				$('.surabaya').remove();
+				alert('Surabaya dihapus');
+			});
+
+			$('#butsuraH').on('click', function() {
+				// $('.surabaya').hide();
+				// $('.surabaya').fadeOut(2000);
+				// console.log('hai');
+				// $('.surabaya').slideDown(2000); //tidak akan muncul
+				$('.surabaya').slideUp(2000);
+			});
+
+			$('#butbogorH').on('click', function() {
+				$('.bogor').toggle();
+				// $('.bogor').animate({
+				// 	marginLeft : 200
+				// });
+			});
+		});
+	</script>
+</body>
+</html>
